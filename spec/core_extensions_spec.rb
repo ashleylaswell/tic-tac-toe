@@ -23,4 +23,15 @@ describe Array do
 			expect([].all_same?).to eq true
 		end
 	end
+	context "#any_empty?" do
+		it "returns true if any of the elements of the Array are empty" do
+			expect(["A", "A", ""].any_empty?).to eq true
+		end
+		it "returns false if there are no empty elements in the Array" do
+			expect(["A", "A", "A"].any_empty?).to eq false
+		end
+		it "returns true for an empty Array" do
+			expect([].any_empty?).to eq true
+		end
+	end
 end
