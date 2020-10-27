@@ -34,4 +34,15 @@ describe Array do
 			expect([].any_empty?).to be_truthy
 		end
 	end
+	context "#none_empty?" do
+		it "returns false if any of the elements of the Array are empty" do
+			expect(["A", "A", ""].none_empty?).to be_falsey
+		end
+		it "returns true if there are no empty elements in the Array" do
+			expect(["A", "A", "A"].none_empty?).to be_truthy
+		end
+		it "returns false for an empty Array" do
+			expect([].none_empty?).to be_falsey
+		end
+	end
 end
