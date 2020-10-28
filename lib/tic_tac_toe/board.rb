@@ -18,14 +18,14 @@ module TicTacToe
 			return :draw if draw?
 			false
 		end
-		def draw?
-			grid.flatten.map { |cell| cell.value }.none_empty?
-		end
 
 		private
 
 		def default_grid
 			Array.new(3) { Array.new(3) { Cell.new } }
+		end
+		def draw?
+			grid.flatten.map { |cell| cell.value }.none_empty?
 		end
 	end
 end
