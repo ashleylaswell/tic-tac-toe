@@ -9,12 +9,12 @@ module TicTacToe
 			end
 			it "sets the grid with three rows by default" do
 				board = Board.new
-				expect(board.grid).to have(3).things
+				expect(board.grid).to eq(3)
 			end
 			it "creates three things in each row by default" do
 				board = Board.new
 				board.grid.each do |row|
-					expect(row).to have(3).things
+					expect(row).to eq(3)
 				end
 			end
 		end
