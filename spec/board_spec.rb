@@ -9,12 +9,12 @@ module TicTacToe
 			end
 			it "sets the grid with three rows by default" do
 				board = Board.new
-				expect(board.grid).to eq(3)
+				expect(board.grid.size).to eq(3)
 			end
 			it "creates three things in each row by default" do
 				board = Board.new
 				board.grid.each do |row|
-					expect(row).to eq(3)
+					expect(row.size).to eq(3)
 				end
 			end
 		end
@@ -60,6 +60,19 @@ module TicTacToe
 				allow(board).to receive(:winner?) { false }
 				allow(board).to receive(:draw?) { false }
 				expect(board.game_over).to be_falsey
+			end
+		end
+		
+		TestCell = Struct.new(:value)
+		let(:x_cell) { TestCell.new("X") }
+		let(:y_cell) { TestCell.new("Y") }
+		let(:empty) { TestCell.new }
+
+		context "game_over" do
+			it "returns :winner if winner? is true" do
+				board = Board.new
+				allow(board).to receive(:winner?) { true }
+				expect(board.game_over).to eq :winner
 			end
 		end
 	end
