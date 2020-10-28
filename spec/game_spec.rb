@@ -5,7 +5,6 @@ module TicTacToe
 
 		let (:bob) { Player.new({color: "X", name: "bob"}) }
 		let (:frank) { Player.new({color: "O", name: "frank"}) }
-		let (:game) { Game.new([bob, frank]) }
 
 		context "#initialize" do
 			it "randomly selects a current_player" do
