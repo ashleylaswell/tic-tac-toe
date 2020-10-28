@@ -95,6 +95,42 @@ module TicTacToe
 				board = Board.new(grid: grid)
 				expect(board.game_over).to eq :winner
 			end
+			it "returns :winner when column has objects with values that are all the same" do
+				grid = [
+					[x_cell, x_cell, empty],
+					[y_cell, x_cell, y_cell],
+					[y_cell, x_cell, empty]
+				]
+				board = Board.new(grid: grid)
+				expect(board.game_over).to eq :winner
+			end
+			it "returns :winner when diagonal has objects with values that are all the same" do
+				grid = [
+					[x_cell, empty, empty],
+					[y_cell, x_cell, y_cell],
+					[y_cell, x_cell, x_cell]
+				]
+				board = Board.new(grid: grid)
+				expect(board.game_over).to eq :winner
+			end
+			it "returns :draw when all spaces on the board are taken" do
+				grid = [
+					[x_cell, y_cell, x_cell],
+					[y_cell, x_cell, y_cell],
+					[y_cell, x_cell, y_cell]
+				]
+				board = Board.new(grid: grid)
+				expect(board.game_over).to eq :draw
+			end
+			it "returns false when there is no winner or draw" do
+				grid = [
+					[x_cell, empty, empty],
+					[y_cell, empty, empty],
+					[y_cell, empty, empty]
+				]
+				board = Board.new(grid: grid)
+				expect(board.game_over).to be_falsey
+			end
 		end
 	end
 end
