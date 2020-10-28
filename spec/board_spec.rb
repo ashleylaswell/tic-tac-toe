@@ -86,6 +86,15 @@ module TicTacToe
 				allow(board).to receive(:draw?) { false }
 				expect(board.game_over).to be_falsey
 			end
+			it "returns :winner when row has objects with values that are all the same" do
+				grid = [
+					[x_cell, x_cell, x_cell],
+					[y_cell, x_cell, y_cell],
+					[y_cell, y_cell, empty]
+				]
+				board = Board.new(grid: grid)
+				expect(board.game_over).to eq :winner
+			end
 		end
 	end
 end
