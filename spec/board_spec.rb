@@ -74,6 +74,12 @@ module TicTacToe
 				allow(board).to receive(:winner?) { true }
 				expect(board.game_over).to eq :winner
 			end
+			it "returns :draw if winner? is false and draw? is true" do
+				board = Board.new
+				allow(board).to receive(:winner?) { false }
+				allow(board).to receive(:draw?) { true }
+				expect(board.game_over).to eq :draw
+			end
 		end
 	end
 end
