@@ -50,5 +50,13 @@ module TicTacToe
 				expect(game.get_move("7")).to eq [0, 2]
 			end
 		end
+		context "#game_over_message" do
+			it "returns '{current player name} won!' if board shows a winner" do 
+				game = Game.new([bob, frank])
+				allow(game).to receive(:current_player) { bob }
+				allow(game.board).to receive(:game_over) { :winner }
+				expect(game.game_over_message).to eq "bob won!"
+			end
+		end
 	end
 end
