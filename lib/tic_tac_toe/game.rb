@@ -24,7 +24,7 @@ module TicTacToe
 			return "The game ended in a tie" if board.game_over == :draw
 		end
 
-		def player
+		def play
 			puts "#{current_player.name} has randomly been selected as the first player"
 			while true
 				board.formatted_grid
