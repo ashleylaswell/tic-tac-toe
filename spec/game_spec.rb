@@ -57,6 +57,12 @@ module TicTacToe
 				allow(game.board).to receive(:game_over) { :winner }
 				expect(game.game_over_message).to eq "bob won!"
 			end
+			it "returns 'The game ended in a tie' if board shows a draw" do
+				game = Game.new([bob, frank])
+				allow(game).to receive(:current_player) { bob }
+				allow(game.board).to receive(:game_over) { :draw }
+				expect(game.game_over_message).to eq "The game ended in a tie"
+			end
 		end
 	end
 end
